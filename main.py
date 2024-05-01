@@ -56,12 +56,17 @@ def main():
                     running = not running
                     update(screen, cells, 10)
                     pygame.display.update()
+                if event.key == pygame.K_e:
+                    pos = pygame.mouse.get_pos()
+                    cells[pos[1] // 10, pos[0] // 10] = 0
+                    update(screen, cells, 10)
+                    pygame.display.update()
             if pygame.mouse.get_pressed()[0]:
                 pos = pygame.mouse.get_pos()
                 cells[pos[1] // 10, pos[0] // 10] = 1
                 update(screen, cells, 10)
                 pygame.display.update()
-
+            
         screen.fill(GRID)
 
         if running:
